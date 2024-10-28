@@ -1,3 +1,4 @@
+import Player from "./components/Player"
 
 function App() {
   
@@ -6,12 +7,9 @@ function App() {
     <main>
       <div id="game-container">
         <ol id="players">
-          <li><span className="player-name">player1</span>
-          <span className="player-symbol">X</span>
-          </li>
-          <li><span className="player-name">player2</span>
-          <span className="player-symbol">O</span>
-          </li>
+        <Player name="Player 1" sympol="X"/>
+        <Player name="Player 2" sympol="O"/>
+          
         </ol>
       </div>
     </main>
