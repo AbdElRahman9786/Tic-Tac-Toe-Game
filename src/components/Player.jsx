@@ -1,19 +1,23 @@
 import { useState } from "react"
 
-export default function Player({name,sympol}){
-    const [isEditeing,setIsEditeing]=useState(false)
+export default function Player({initialname,sympol,isActive}){
+    const [playerName,setPlayerName]=useState(initialname)
+    const [isEditeing,setIsEditeing]=useState(false);
+    function hanedlChange(event){
+        setPlayerName(event.target.value)
+    }
     return(
-        <li>
+        <li className={isActive?'active':undefined}>
         <span className="player">
             {isEditeing?(
-                <input type="text" disabled={isEditeing} value={name} required/>
+                <input type="text"  value={playerName} required onChange={hanedlChange}/>
             ):(
-<span className="player-name">{name}</span>
+<span className="player-name">{playerName}</span>
             )}
         
       <span className="player-symbol">{sympol}</span>
       </span>
-      <button onClick={()=>setIsEditeing(!isEditeing)}>{isEditeing?'Save':'Edite'}</button>
+      <button onClick={()=>setIsEditeing((prev)=>!prev)}>{isEditeing?'Save':'Edite'}</button>
       </li>
     )
 }
