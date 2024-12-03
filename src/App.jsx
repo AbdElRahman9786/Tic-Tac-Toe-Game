@@ -22,7 +22,7 @@ function helper(gameTuerns){
 
 }
 function driverWinner(gameBoard,playerName){
-  let winning=null;
+  var winning=null;
 for(let compination of WINNING_COMBINATIONS){
   let firstSquer=gameBoard[compination[0].row][compination[0].column];
   let secondSquer=gameBoard[compination[1].row][compination[1].column];
@@ -51,7 +51,7 @@ function App() {
 
 const gameBoard=drivedGameBoard(board,turns)
 const winner=driverWinner(gameBoard,playerName);
-let draw=turns.length===9&&!winning;
+let draw=turns.length===9&&!winner;
   let activePlayer=helper(turns);
   function handelSelected(rowIndex,colIndex){
     setTurnes((prev)=>{
